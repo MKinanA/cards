@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg: 31, 31, 63;
+    --card-bg: 191, 191, 223;
+    --card: 127, 127, 159;
+}
+
+* {
+    transition: all 0.125s ease-out;
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+    color: rgba(var(--card-bg), 1);
+    text-align: center;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: rgba(var(--bg), 1);
+}
+
+main {
+    height: 90vmin;
+    width: 160vmin;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 4vmin;
+}
+
+main > div {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    width: 16vmin;
+    height: auto;
+    border-radius: 1vmin;
+    background: rgba(var(--card-bg), 1);
+    outline: 1vmin solid rgba(var(--card), 1);
+    outline-offset: -1.5vmin;
+    --num: attr(num);
+    cursor: pointer;
+    overflow: hidden;
+    transition-duration: 0.25s;
+}
+
+main > div:hover {
+    transform: scale(1.1);
+}
+
+main > div:active {
+    transform: scale(0.9);
+}
+
+main > div::before {
+    content: var(--num);
+    font-size: 6vmin;
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    height: 10vmin;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    background: rgba(var(--card), 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main > div > :only-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(-1);
+    height: calc(100% - 1vmin);
+    width: calc(100% - 1vmin);
+    border-radius: 0.5vmin;
+    object-fit: cover;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    visibility: hidden;
+    pointer-events: none;
+    transition: none;
+}
+
+main > div.open {
+    transform: rotateY(180deg);
+}
+
+main > div.open:hover {
+    transform: rotateY(180deg) scale(1.1);
+}
+
+main > div.open:active {
+    transform: rotateY(180deg) scale(0.9);
+}
+
+main > div.show > :only-child {
+    visibility: visible;
+    pointer-events: all;
+}
