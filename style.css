@@ -114,5 +114,4 @@ main > div.open:active {
 
 main > div.show > :only-child {
     visibility: visible;
-    pointer-events: all;
 }
