@@ -1,1 +1,0 @@
-<a href="https://www.flaticon.com/authors/freepik" title="lollipop icons">Icons created by Freepik - Flaticon</a>
